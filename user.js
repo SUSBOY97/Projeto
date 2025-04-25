@@ -4,7 +4,7 @@ async function save()
    let email = "";
    let userType = 1;
    let password = "";
-   let termos = "";
+   let termos = 1;
    let birthday = "";
    let cpf_cnpj= "";
    let Celular = "";
