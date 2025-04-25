@@ -7,7 +7,6 @@ async function cadastro()
    let Email = document.getElementById("email").value;
    let senha = document.getElementById("senha").value;
    let Celular = document.getElementById("Celular").value;
-//    let termos = document.getElementById("termos").value;
 
    let url = "https://go-wash-api.onrender.com/api/user";
 
