@@ -1,6 +1,5 @@
 async function cadastro()
 {
-
    let nome = document.getElementById("nome").value;
    let DataNascimento = document.getElementById("data_nascimento").value;
    let CPF_CNPJ = document.getElementById("CPF_CNPJ").value;

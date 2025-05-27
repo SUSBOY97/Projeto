@@ -1,7 +1,10 @@
 async function Login()
 {
-    let Email = "carlosr.m.fernandes@gmail.com"
-    let senha = "123456789"
+   let Email = document.getElementById("email").value;
+   let senha = document.getElementById("senha").value;
+   let api = await fetch ("https://go-wash-api.onrender.com/api/login")
+   headers:
+
     let url = "https://go-wash-api.onrender.com/api/login";
 
     let info = 
@@ -17,23 +20,24 @@ async function Login()
         return
     }
 
-    let api = await fetch(url ,
-    {
-        method:"POST",
-        body: JSON.stringify(info),
-        headers:
-        {
-            'Content-Type':'application/json'
-        }
-    });
+    // let api = await fetch(url ,
+    // {
+    //     method:"POST",
+    //     body: JSON.stringify(info),
+    //     headers:
+    //     {
+    //         'Content-Type':'application/json'
+    //     }
+    // });
     
         if(api.ok)
         {
+            alert("login sucesso!..")
             let response = await api.json()
-            console.log(response);
-            return
+            localStorage.setItem("user",JSON.stringify
+                (response))
+
+                window.location ="file:///C:\Users\guuhs\OneDrive\Área de Trabalho\Projeto\NovoProjeto/Listagem.html"
+
         }
-
-
-
 }
