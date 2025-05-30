@@ -17,8 +17,5 @@ async function listagem()
         let response = await api.json()
         localStorage.setItem("user",JSON.stringify
         (response))
-
-        window.location = "" // verificar com o professor
     }
-
 }
