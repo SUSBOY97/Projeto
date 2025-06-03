@@ -1,36 +1,44 @@
 async function Login(){
-    let api = await fetch("https://go-wash-api.onrender.com/api/login",{
-        method : "POST",
-        body :JSON.stringify({
-            "email": "carlosr.m.fernandes@gmail.com",
-            "password ": "123456",
-            "user_type_id" : 1
+   let Email = document.getElementById("email").value;
+   let senha = document.getElementById("senha").value;
 
-        }),
-        headers :{
-            'Content-Type': 'application/json'
-        }
+
+   if (Email == ''  || senha  == '')
+    {
+        alert ("Todos os campos devem ser preenchidos")
+        return
+    }
+    
+    if(senha.length < 6)
+    {
+        alert ("Senha necessita ter minimo de 6  digitos")
+        return
+    }
+
+    info = 
+    {
+        "password": senha,
+        "email": Email,
+        "user_type_id": 1,
+    };
+
+   let api = await fetch("https://go-wash-api.onrender.com/api/login", {
+        method: "POST",
+        
+        body: JSON.stringify(info),
+
+        headers: {'Content-type': 'application/json'}
     });
 
-        if(api.ok)
+        if (api.ok) 
         {
-            alert("login sucesso!..")
-            let response = await api.json()
-            console.log(response);
-        }
-        
-        // if(api.ok)
-        // {
-        //         alert("login sucesso!..")
-        //         let response = await api.json()
-        //         localStorage. setItem("user",JSON.stringify(response))
-        //         Window.location = "C:\Users\guuhs\OneDrive\Área de Trabalho\Projeto\NovoProjeto/Listagem.html"
-        // }
-        
+                let resp = await api.json();
+                localStorage.setItem("user", JSON.stringify(resp));
+                alert("Login realizado com sucesso!");
+                window.location.href = 'C:/Users/guuhs/OneDrive/Área de Trabalho/Projeto/NovoProjeto/Listagem.html'
+                return;
+        } 
 }
 
-// function GetUserData()
-// {
-//     let user = JSON.parse(localStorage.getItem("user"))
-//     console.log(user.bairro)
-// }
+
+

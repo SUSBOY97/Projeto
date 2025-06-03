@@ -6,6 +6,7 @@ async function cadastro()
    let Email = document.getElementById("email").value;
    let senha = document.getElementById("senha").value;
    let Celular = document.getElementById("Celular").value;
+   let termos = document.getElementById("termos").checked;
    
    let url = "https://go-wash-api.onrender.com/api/user";
 
@@ -16,7 +17,7 @@ async function cadastro()
         "user_type_id": 1,
         "password": senha,
         "cpf_cnpj": CPF_CNPJ,
-        "terms": 1,
+        "terms": termos,
         "birthday": DataNascimento,
         "Celular" : Celular,
     }
@@ -30,6 +31,9 @@ async function cadastro()
     {
         alert ("Senha necessita ter minimo de 6  digitos")
         return
+    }
+    if (termos == false){
+        alert("Necessario aceitar os termos de uso!")
     }
    let api = await fetch(url,
     {
@@ -45,6 +49,6 @@ async function cadastro()
     {
         let response = await api.json()
         console.log(response);
-            alert ("Cadastro efetuado com sucesso.Enviamos um link de ativacao para o email")
+            alert ("Cadastro efetuado com sucesso.Enviamos um link de ativacao para o email.")
    }
 }

@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Tela de Cadastro</title>
     <style>
+        /* Base styles for the entire page */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('novofundo.png') no-repeat center center/cover; /* Make sure novofundo.png is in the correct path */
+            background: url('novofundo.png') no-repeat center center/cover;
             color: white;
-            min-height: 100vh; /* Ensure body takes full viewport height */
+            min-height: 100vh; 
             display: flex;
-            flex-direction: column;
+            flex-direction: column; 
         }
 
         header {
@@ -23,7 +24,7 @@
         }
 
         header h1 {
-            margin: 0;
+            margin: 0; 
             color: white;
             font-size: 36px;
         }
@@ -32,46 +33,36 @@
             margin-top: 10px;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Use flexbox for horizontal navigation */
-            justify-content: center;
-        }
-
-        nav li {
-            margin: 0 15px;
-        }
-
         nav a {
             color: white;
             text-decoration: none;
+            margin: 0 15px;
             font-size: 18px;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #a0c2e9; /* Lighter blue on hover */
+            color: #a0c2e9; 
         }
         
         main {
-            flex-grow: 1; /* Allows main to take available space */
+            flex-grow: 1; 
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; 
+            align-items: center; 
             padding: 40px 20px;
         }
 
+
         form {
-            background-color: rgba(30, 58, 95, 0.85);
-            padding: 30px 40px; /* Increased padding */
+            background-color: rgba(30, 58, 95, 0.85); 
+            padding: 30px 40px; 
             border-radius: 12px;
-            max-width: 500px; /* Increased max-width for more spacious form */
+            max-width: 500px; 
             width: 100%;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             display: flex;
-            flex-direction: column; /* Arrange labels and inputs vertically */
+            flex-direction: column; 
         }
 
         form h2 {
@@ -82,35 +73,34 @@
 
         label {
             color: white;
-            margin-bottom: 8px; /* Space between label and input */
+            margin-bottom: 8px; 
             font-size: 16px;
-            font-weight: bold;
+            font-weight: bold; 
         }
 
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: calc(100% - 20px); /* Adjust width to account for padding */
+            width: calc(100% - 20px); 
             padding: 10px;
             margin-bottom: 18px;
             border: none;
             border-radius: 6px;
-            background: #f0f0f0;
+            background: #f0f0f0; 
             color: #333;
             font-size: 14px;
-            box-sizing: border-box; /* Include padding in width calculation */
+            box-sizing: border-box; 
         }
-
         button {
             width: 100%;
             padding: 12px;
-            background-color: #4CAF50; /* Green for main action */
+            background-color: #4CAF50; 
             border: none;
             border-radius: 10px;
             color: white;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px; /* Space above buttons */
+            margin-top: 10px; 
             transition: background-color 0.3s;
         }
 
@@ -118,9 +108,8 @@
             background-color: #45a049;
         }
 
-        button[type="button"] { /* Style for the Cancel button */
-            background-color: #f44336; /* Red for cancel */
-            margin-top: 10px;
+        button[type="button"] { 
+            background-color: #f44336; 
         }
 
         button[type="button"]:hover {
@@ -132,26 +121,24 @@
             color: white;
             padding: 20px 20px;
             text-align: center;
-            margin-top: auto; /* Pushes footer to the bottom */
+            margin-top: auto; 
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Cadastro de Endereços</h1>
+        <h1>Futebol Style</h1>
         <nav>
-            <ul>
-                <li><a href="../pagina_inicial/index.html">Home</a></li>
-                <li><a href="../pagina_inicial/sobre_nos.html">Sobre Nós</a></li>
-                <li><a href="../cadastro_usuario/tela_cadastro.html">Cadastro</a></li>
-                <li><a href="../login/login.html">Login</a></li>
-            </ul>
+            <a href="Index.html">Home</a>
+            <a href="Cadastro.html">Cadastro</a>
+            <a href="Login.html">Login</a>
+            <a href="SobreNos.html">Quem Somos</a>
         </nav>
     </header>
 
     <main>
         <form>
-            <h2>Preencha seus dados</h2>
+            <h2>Cadastro de Endereços</h2>
             <label for="titulo">Título</label>
             <input type="text" name="titulo" id="titulo" />
             
@@ -167,8 +154,8 @@
             <label for="complemento">Complemento</label>
             <input type="text" name="complemento" id="complemento" />
             
-            <button onclick="cadastro_endereco(event)">Salvar</button>
-            <button type="button" onclick="window.location.href='listagem_enderecos.html'">Cancelar</button>
+            <button onclick="cadastrar_endereco(event)">Salvar</button>
+            <button type="button" onclick="window.location.href='listagem.html'">Cancelar</button>
         </form>
     </main>
 
@@ -176,6 +163,6 @@
         <p>&copy; 2025 Futebol Style - Todos os direitos reservados.</p>
     </div>
 
-    <script src="cadastrar_endereco.js"></script>
+    <script src="cadastrar-endereço.js"></script>
 </body>
 </html>
