@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Endereços - Futebol Style</title>
+    <style>
+        /* Global Styles (from Login page) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('novofundo.png') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles (from Login page) */
+        header {
+            background: #1e3a5f;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 3em; /* Make header title more prominent */
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a0c2e6; /* Lighter blue on hover */
+        }
+
+        /* Main Content Styles */
+        main {
+            flex-grow: 1; /* Allows main to take available space */
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center horizontally */
+            text-align: center; /* Center text within main */
+        }
+
+        main h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        /* General Button Style */
+        button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: 25px; /* Space below buttons */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Table Styles */
+        table {
+            width: 90%; /* Adjust table width as needed */
+            max-width: 1000px; /* Maximum width for larger screens */
+            border-collapse: collapse;
+            background-color: rgba(30, 58, 95, 0.85); /* Same as form background */
+            border-radius: 12px;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+
+        table thead {
+            background-color: #1a324d; /* Slightly darker header */
+            color: white;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        }
+
+        table th {
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        table tbody tr:last-child td {
+            border-bottom: none; /* No border for the last row */
+        }
+
+        table tbody tr:hover {
+            background-color: rgba(40, 70, 110, 0.85); /* Lighter on hover */
+        }
+
+        /* Specific styles for action buttons in table */
+        table button.atualizar {
+            background-color: #2980b9; /* Blue for update */
+            margin-right: 8px;
+            padding: 8px 15px; /* Smaller padding */
+            font-size: 0.9em;
+        }
+
+        table button.atualizar:hover {
+            background-color: #2471a3;
+        }
+
+        table button.excluir {
+            background-color: #e74c3c; /* Red for delete */
+            padding: 8px 15px; /* Smaller padding */
+            font-size: 0.9em;
+        }
+
+        table button.excluir:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px); /* Optional: blur background */
+        }
+
+        .modal-content {
+            background-color: #1e3a5f; /* Same as header/form color */
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #888;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8em;
+        }
+
+        .modal-content input {
+            width: calc(100% - 24px); /* Adjust for padding */
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #555;
+            border-radius: 6px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .modal-content button:last-child {
+            margin-right: 0; /* No margin on the last button */
+            background-color: #7f8c8d; /* Gray for cancel */
+        }
+        .modal-content button:last-child:hover {
+            background-color: #6c7a7b;
+        }
+
+
+        /* Footer Styles (from Login page) */
+        .rodape {
+            background: #1e3a5f;
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            margin-top: auto; /* Pushes the footer to the bottom */
+            width: 100%;
+        }
+    </style>
+    <script src="listagem.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Futebol Style</h1>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a href="Cadastro.html">Cadastro</a>
+            <a href="Login.html">Login</a>
+            <a href="SobreNos.html">Quem Somos</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Endereços Cadastrados</h2>
+        <button onclick="window.location.href='cadastrar-endereço.html'">Cadastrar Novo Endereço</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>CEP</th>
+                    <th>Endereço</th>
+                    <th>Número</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-enderecos">
+                </tbody>
+        </table>
+
+        <template id="template-linha">
+            <tr>
+                <td class="titulo"></td>
+                <td class="cep"></td>
+                <td class="endereco"></td>
+                <td class="numero"></td>
+                <td>
+                    <button class="atualizar">Atualizar</button>
+                    <button class="excluir">Excluir</button>
+                </td>
+            </tr>
+        </template>
+    </main>
+
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content">
+            <h3>Editar Endereço</h3>
+            <input id="edit-titulo" placeholder="Título">
+            <input id="edit-cep" placeholder="CEP">
+            <input id="edit-endereco" placeholder="Endereço">
+            <input id="edit-numero" placeholder="Número">
+            <input id="edit-complemento" placeholder="Complemento (Opcional)">
+            <button onclick="salvarEdicao()">Salvar</button>
+            <button onclick="fecharModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <p>&copy; 2025 Futebol Style - Todos os direitos reservados.</p>
+    </div>
+</body>
+</html>
